@@ -3,7 +3,7 @@
 // ==============================================
 const Service = {
     name: "order-service",      // 永远不变！
-    clusterIP: "10.96.0.100",   // 永远不变！
+    clusterIP: "10.96.0.100",   // 永远不变！ ClusterIP 不是真实机器的 IP，它是一个 “虚拟门牌号”。
     endpoints: [],              // 底下真实Pod IP（会自动变）
   
     // 自动维护后端可用Pod（K8s自动做）

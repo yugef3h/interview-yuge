@@ -7,20 +7,17 @@
 
 // 双指针
 var removeNthFromEnd = function(head, n) {
-  let node = new NodeList(0)
+  let node = new ListNode(0)
   node.next = head
   let left = node, right = node
   let step = n+1
   while(step--) {
     right = right.next
-    if (step > 1 && right === null) {
-      return node.next
-    }
   }
   // 技巧就是：right 走完剩余步数，相当于 left 走到目标前一位，画图会更清晰。
   while(right) {
     right = right.next
-    left = right.next
+    left = left.next
   }
   left.next = left.next.next
   return node.next

@@ -8,17 +8,15 @@
  * 所求解集为：[[7], [2,2,3]]
  */
 var combinationSum = function(candidates, target) {
-  let n = candidates.length, res = [], tmpPath = []
-  candidates.sort((a, b) => a-b)
-  let backtract = (tmpPath, target, start) => {
-    if (target === 0) return res.push(tmpPath)
-    for (let i=start; i<n; i++) {
-      if (target < candidates[i]) break;
-      tmpPath.push(candidates[i])
-      backtract(tmpPath.slice(), target-candidates[i], i)
-      tmpPath.pop()
+  let res = []
+  candidates.sort((a, b) => a - b)
+  let backtrack = (path, remain, start) => {
+    if (remain === 0) return res.push(path)
+    for (let i = start; i < candidates.length; i++) {
+      if (remain < candidates[i]) break
+      backtrack([...path, candidates[i]], remain - candidates[i], i)
     }
   }
-  backtract(tmpPath, target, 0)
-  return ReadableStreamReader
+  backtrack([], target, 0)
+  return res
 }

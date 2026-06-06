@@ -19,16 +19,17 @@ var longestPalindrome = function (s) {
       left--;
       right++;
     }
-    return right - left - 1;
+    return (right - 1) - (left + 1) + 1 // 回文串的长度
   }
   for (let i = 0; i < n; i++) {
     let len1 = centerExpend(i, i);
     let len2 = centerExpend(i, i + 1);
     // 两种组合取最大回文串的长度
     let maxLen = Math.max(len1, len2);
-    if (maxLen > end - start) {
+    // 更新最大回文串的首尾字符索引
+    if (maxLen > end - start) { // 如果当前回文串的长度大于最大回文串的长度，则更新最大回文串的首尾字符索引
       // 更新最大回文串的首尾字符索引
-      start = i - ((maxLen - 1) >> 1);
+      start = i - ((maxLen - 1) >> 1); // 奇偶回文兼容处理
       end = i + (maxLen >> 1);
     }
   }

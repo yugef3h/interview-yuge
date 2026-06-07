@@ -33,5 +33,5 @@ var longestPalindrome = function (s) {
       end = i + (maxLen >> 1);
     }
   }
-  return s.substring(start, end + 1);
+  return s.slice(start, end + 1);
 }

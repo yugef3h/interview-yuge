@@ -1,5 +1,8 @@
 .DS_Store
 static/
 python/
+go/
 dify/
 service/
+TS/
+管理/
